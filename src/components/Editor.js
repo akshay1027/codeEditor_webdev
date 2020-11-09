@@ -1,10 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import 'codemirror/theme/material.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/css/css'
-import { controlled as controlledEditor } from 'react-codemirror2'
+import { Controlled as ControlledEditor } from 'react-codemirror2'
 
 export default function Editor(props) {
     const {
@@ -14,8 +14,10 @@ export default function Editor(props) {
         onChange
     } = props
 
+    const [ open, setOpen] = useState(true)
+    
     function handleChange(editor, data, value) {
-        onchange(value)
+        onChange(value)
     }
 
     return (
@@ -24,7 +26,7 @@ export default function Editor(props) {
                 {displayName}
                 <button>oc</button>
             </div>
-            <controlledEditor
+            <ControlledEditor
               onBeforeChange={handleChange}
               value={value}
               className="code-mirror-wrapper"
@@ -33,7 +35,8 @@ export default function Editor(props) {
                   lint: true,
                   mode: language,
                   theme: 'material',
-                  lineNumbers: true
+                  lineNumbers: true,
+                  lineWrapping: true,
               }}
               />
             
