@@ -11,8 +11,8 @@ function App() {
             setSrcDoc( `
             <html>
               <body>${html}</body>
-              <body>${css}</body>
-              <body>${js}</body>
+              <style>${css}</style>
+              <script>${js}</script>
             </html>
            `)
         }, 250);
