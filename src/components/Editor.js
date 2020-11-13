@@ -24,7 +24,6 @@ export default function Editor(props) {
         <div className="editor-container">
             <div className="editor-title">
                 {displayName}
-                <button>oc</button>
             </div>
             <ControlledEditor
               onBeforeChange={handleChange}
