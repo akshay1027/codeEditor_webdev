@@ -1,9 +1,10 @@
 import React, {useState, useEffect } from 'react'
 import Editor from './Editor'
+import useLocalStorage from '../hooks/useLocalStorage'
 function App() {
-    const[ html, setHtml ] = useState('')
-    const[ css, setCss ] = useState('')
-    const[ js, setJs ] = useState('')
+    const[ html, setHtml ] = useLocalStorage('html','')
+    const[ css, setCss ] = useLocalStorage('css','')
+    const[ js, setJs ] = useLocalStorage('js','')
     const[ srcDoc, setSrcDoc ] = useState('')
     
     useEffect(() => {
@@ -24,19 +25,19 @@ function App() {
         <div className="pane top-pane">
               <Editor 
                 language="xml"
-                displayName="HTML "
+                displayName="HTML"
                 value={html}
                 onChange={setHtml}
                 />
             <Editor 
                 language="css"
-                displayName="CSS "
+                displayName="CSS"
                 value={css}
                 onChange={setCss}
                 />
             <Editor 
                 language="javascript"
-                displayName="JS "
+                displayName="JS"
                 value={js}
                 onChange={setJs}
                 />
